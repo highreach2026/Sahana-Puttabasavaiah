@@ -1,0 +1,7 @@
+*.orig.html
+*.orig.css
+server.orig.js
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

@@ -393,24 +393,18 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 
 					/* Footer mobile layout */
 					.elementor-960 .elementor-element.elementor-element-4570535 {
-						--width: 100% !important;
-						width: 100% !important;
-						--justify-content: flex-start !important;
-						justify-content: flex-start !important;
-						--align-items: flex-start !important;
-						align-items: flex-start !important;
-					}
-					.elementor-960 .elementor-element.elementor-element-97ce19f {
-						width: 100% !important;
+						--justify-content: center !important;
+						justify-content: center !important;
+						--align-items: center !important;
+						align-items: center !important;
 					}
 					.elementor-960 .elementor-element.elementor-element-97ce19f .hfe-copyright-wrapper {
-						width: 100% !important;
-						align-items: flex-start !important;
-						text-align: left !important;
+						align-items: center !important;
+						text-align: center !important;
 					}
 					.elementor-960 .elementor-element.elementor-element-97ce19f .hfe-copyright-wrapper > span {
-						justify-content: flex-start !important;
-						text-align: left !important;
+						justify-content: center !important;
+						text-align: center !important;
 					}
 					.elementor-960 .elementor-element.elementor-element-c1d96bf {
 						--width: 100% !important;
@@ -430,6 +424,360 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 						justify-content: center !important;
 						align-items: center !important;
 						padding-top: 12px !important;
+					}
+				}
+
+				/* Grounded Craft (#disciplines): 5-Image Collection Grid Gallery Modal */
+				#disciplines .gc-gallery-trigger {
+					cursor: pointer;
+				}
+				#disciplines .gc-gallery-trigger img {
+					transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+					display: block;
+				}
+				#disciplines .gc-gallery-trigger:hover img,
+				#disciplines .gc-gallery-trigger:focus-visible img {
+					transform: scale(1.025);
+					filter: brightness(0.92);
+				}
+				#disciplines .gc-gallery-badge {
+					position: absolute;
+					right: 16px;
+					bottom: 16px;
+					z-index: 5;
+					display: inline-flex;
+					align-items: center;
+					gap: 6px;
+					padding: 8px 14px;
+					border-radius: 999px;
+					background: rgba(11, 11, 11, 0.82);
+					color: #F3EFE6;
+					font-family: var(--e-global-typography-text-font-family, "Plus Jakarta Sans", sans-serif);
+					font-size: 12px;
+					font-weight: 600;
+					letter-spacing: 0.06em;
+					text-transform: uppercase;
+					border: 1px solid rgba(243, 239, 230, 0.25);
+					backdrop-filter: blur(6px);
+					-webkit-backdrop-filter: blur(6px);
+					pointer-events: none;
+					transition: background-color 0.25s ease, transform 0.25s ease;
+				}
+				#disciplines .gc-gallery-trigger:hover .gc-gallery-badge,
+				#disciplines .gc-gallery-trigger:focus-visible .gc-gallery-badge {
+					background: #FF4D00;
+					color: #0B0B0B;
+					border-color: #FF4D00;
+					transform: translateY(-2px);
+				}
+
+				.gc-gallery-modal {
+					position: fixed;
+					inset: 0;
+					z-index: 99998;
+					display: none;
+					align-items: center;
+					justify-content: center;
+					padding: 24px;
+					background: rgba(11, 11, 11, 0.88);
+					backdrop-filter: blur(8px);
+					-webkit-backdrop-filter: blur(8px);
+					overflow-y: auto;
+				}
+				.gc-gallery-modal.is-open {
+					display: flex;
+				}
+				.gc-gallery-dialog {
+					position: relative;
+					width: 100%;
+					max-width: 1040px;
+					max-height: 90vh;
+					overflow-y: auto;
+					background: #141414;
+					color: #F3EFE6;
+					border: 1px solid rgba(243, 239, 230, 0.14);
+					border-radius: 16px;
+					padding: 28px 30px 30px;
+					box-shadow: 0 28px 80px rgba(0, 0, 0, 0.6);
+				}
+				.gc-gallery-header {
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-between;
+					gap: 16px;
+					margin-bottom: 22px;
+					padding-bottom: 16px;
+					border-bottom: 1px solid rgba(243, 239, 230, 0.14);
+				}
+				.gc-gallery-kicker {
+					font-size: 11px;
+					font-weight: 700;
+					letter-spacing: 0.14em;
+					text-transform: uppercase;
+					color: #FF4D00;
+					margin: 0 0 6px;
+				}
+				.gc-gallery-title {
+					margin: 0 0 6px;
+					font-size: clamp(22px, 3vw, 32px);
+					line-height: 1.1;
+					color: #F3EFE6;
+					letter-spacing: -0.02em;
+				}
+				.gc-gallery-subtitle {
+					margin: 0;
+					font-size: 14px;
+					line-height: 1.5;
+					color: rgba(243, 239, 230, 0.72);
+					max-width: 680px;
+				}
+				.gc-gallery-close {
+					flex: 0 0 auto;
+					width: 40px !important;
+					height: 40px !important;
+					padding: 0 !important;
+					border-radius: 999px !important;
+					border: 1px solid rgba(243, 239, 230, 0.28) !important;
+					background: rgba(243, 239, 230, 0.08) !important;
+					color: #F3EFE6 !important;
+					font-size: 22px !important;
+					line-height: 1 !important;
+					cursor: pointer;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+				}
+				.gc-gallery-close:hover,
+				.gc-gallery-close:focus-visible {
+					background: #FF4D00 !important;
+					border-color: #FF4D00 !important;
+					color: #0B0B0B !important;
+					outline: none;
+				}
+				.gc-gallery-grid {
+					display: grid;
+					grid-template-columns: repeat(6, 1fr);
+					gap: 16px;
+				}
+				.gc-gallery-card {
+					position: relative;
+					grid-column: span 2;
+					aspect-ratio: 3 / 2;
+					border-radius: 12px !important;
+					overflow: hidden;
+					background: #1D1D1D !important;
+					border: 1px solid rgba(243, 239, 230, 0.14) !important;
+					cursor: pointer;
+					padding: 0 !important;
+					margin: 0 !important;
+					text-align: left;
+					white-space: normal !important;
+					display: block;
+					width: 100%;
+					transition: transform 0.25s ease, border-color 0.25s ease;
+				}
+				.gc-gallery-card:nth-child(4),
+				.gc-gallery-card:nth-child(5) {
+					grid-column: span 3;
+					aspect-ratio: 16 / 10;
+				}
+				.gc-gallery-card:hover,
+				.gc-gallery-card:focus-visible {
+					transform: translateY(-3px);
+					border-color: #FF4D00 !important;
+					background: #1D1D1D !important;
+					outline: none;
+				}
+				.gc-gallery-card img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					display: block;
+					transition: transform 0.4s ease;
+				}
+				.gc-gallery-card:hover img {
+					transform: scale(1.04);
+				}
+				.gc-gallery-card-caption {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					padding: 24px 14px 10px;
+					background: linear-gradient(to top, rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0));
+					color: #F3EFE6;
+					font-size: 12px;
+					font-weight: 500;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					gap: 8px;
+				}
+				.gc-gallery-card-index {
+					font-size: 11px;
+					font-weight: 700;
+					color: #FF4D00;
+					letter-spacing: 0.08em;
+				}
+				.gc-gallery-placeholder {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					gap: 8px;
+					padding: 18px;
+					text-align: center;
+					background: repeating-linear-gradient(
+						-45deg,
+						#1A1A1A,
+						#1A1A1A 12px,
+						#202020 12px,
+						#202020 24px
+					);
+					color: rgba(243, 239, 230, 0.78);
+				}
+				.gc-gallery-placeholder-num {
+					font-size: 11px;
+					font-weight: 700;
+					letter-spacing: 0.14em;
+					text-transform: uppercase;
+					color: #FF4D00;
+					padding: 4px 10px;
+					border-radius: 999px;
+					background: rgba(255, 77, 0, 0.14);
+					border: 1px solid rgba(255, 77, 0, 0.35);
+				}
+				.gc-gallery-placeholder-label {
+					font-size: 14px;
+					font-weight: 600;
+					color: #F3EFE6;
+				}
+				.gc-gallery-placeholder-hint {
+					font-size: 12px;
+					color: rgba(243, 239, 230, 0.55);
+				}
+
+				/* Full-size Lightbox inside Gallery Modal */
+				.gc-gallery-lightbox {
+					position: fixed;
+					inset: 0;
+					z-index: 99999;
+					display: none;
+					align-items: center;
+					justify-content: center;
+					padding: 24px;
+					background: rgba(5, 5, 5, 0.94);
+				}
+				.gc-gallery-lightbox.is-open {
+					display: flex;
+				}
+				.gc-gallery-lightbox-inner {
+					position: relative;
+					width: 100%;
+					max-width: 960px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 14px;
+				}
+				.gc-gallery-lightbox-stage {
+					width: 100%;
+					max-height: 76vh;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.gc-gallery-lightbox-stage img {
+					max-width: 100%;
+					max-height: 76vh;
+					border-radius: 10px;
+					object-fit: contain;
+					box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+				}
+				.gc-gallery-lightbox-stage .gc-gallery-placeholder {
+					width: min(720px, 100%);
+					aspect-ratio: 3 / 2;
+					border-radius: 12px;
+					border: 1px dashed rgba(243, 239, 230, 0.25);
+				}
+				.gc-gallery-lightbox-bar {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					gap: 12px;
+					color: #F3EFE6;
+					font-size: 14px;
+				}
+				.gc-gallery-lightbox-nav {
+					display: inline-flex;
+					align-items: center;
+					gap: 10px;
+				}
+				.gc-gallery-nav-btn {
+					width: 40px !important;
+					height: 40px !important;
+					padding: 0 !important;
+					border-radius: 999px !important;
+					border: 1px solid rgba(243, 239, 230, 0.28) !important;
+					background: rgba(243, 239, 230, 0.08) !important;
+					color: #F3EFE6 !important;
+					font-size: 20px !important;
+					line-height: 1 !important;
+					cursor: pointer;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+				}
+				.gc-gallery-nav-btn:hover,
+				.gc-gallery-nav-btn:focus-visible {
+					background: #FF4D00 !important;
+					border-color: #FF4D00 !important;
+					color: #0B0B0B !important;
+					outline: none;
+				}
+				@media (max-width: 767px) {
+					.gc-gallery-modal {
+						padding: 12px;
+					}
+					.gc-gallery-dialog {
+						padding: 18px 16px 20px;
+						max-height: 92vh;
+					}
+					.gc-gallery-grid {
+						grid-template-columns: repeat(2, 1fr);
+						gap: 10px;
+					}
+					.gc-gallery-card,
+					.gc-gallery-card:nth-child(4),
+					.gc-gallery-card:nth-child(5) {
+						grid-column: span 1;
+						aspect-ratio: 4 / 3;
+					}
+					.gc-gallery-card:first-child {
+						grid-column: span 2;
+						aspect-ratio: 16 / 10;
+					}
+					.gc-gallery-placeholder {
+						padding: 10px;
+						gap: 5px;
+					}
+					.gc-gallery-placeholder-label {
+						font-size: 12px;
+						line-height: 1.25;
+					}
+					.gc-gallery-placeholder-hint {
+						font-size: 11px;
+					}
+					#disciplines .gc-gallery-badge {
+						right: 10px;
+						bottom: 10px;
+						padding: 6px 11px;
+						font-size: 11px;
 					}
 				}
 			</style>
@@ -1219,5 +1567,247 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 <script src="./wp-content/plugins/jeg-elementor-kit/assets/js/elements/post-pagination.js?ver=3.2.17" id="jkit-element-pagination-js"></script>
 <script src="./wp-content/plugins/header-footer-elementor/inc/js/frontend.js?ver=2.9.5" id="hfe-frontend-js-js"></script>
 <script src="./wp-content/plugins/jeg-elementor-kit/assets/js/elements/sticky-element.js?ver=3.2.17" id="jkit-sticky-element-js"></script>
+
+<!-- Grounded Craft (#disciplines) 5-Image Collection Grid Gallery Modal -->
+<div id="gc-gallery-modal" class="gc-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gc-gallery-title" aria-hidden="true">
+	<div class="gc-gallery-dialog">
+		<div class="gc-gallery-header">
+			<div>
+				<p class="gc-gallery-kicker">Grounded Craft Collection • 5 Photos</p>
+				<h3 id="gc-gallery-title" class="gc-gallery-title"></h3>
+				<p id="gc-gallery-subtitle" class="gc-gallery-subtitle"></p>
+			</div>
+			<button type="button" class="gc-gallery-close" id="gc-gallery-close" aria-label="Close gallery">&times;</button>
+		</div>
+		<div id="gc-gallery-grid" class="gc-gallery-grid"></div>
+	</div>
+</div>
+
+<div id="gc-gallery-lightbox" class="gc-gallery-lightbox" role="dialog" aria-modal="true" aria-label="Full-size photo view" aria-hidden="true">
+	<div class="gc-gallery-lightbox-inner">
+		<div id="gc-gallery-lightbox-stage" class="gc-gallery-lightbox-stage"></div>
+		<div class="gc-gallery-lightbox-bar">
+			<div id="gc-gallery-lightbox-caption"></div>
+			<div class="gc-gallery-lightbox-nav">
+				<button type="button" class="gc-gallery-nav-btn" id="gc-lb-prev" aria-label="Previous photo">&#8249;</button>
+				<span id="gc-lb-counter"></span>
+				<button type="button" class="gc-gallery-nav-btn" id="gc-lb-next" aria-label="Next photo">&#8250;</button>
+				<button type="button" class="gc-gallery-close" id="gc-lb-close" aria-label="Close full-size view">&times;</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script id="gc-grounded-craft-gallery-js">
+(function () {
+	/*
+	 * Grounded Craft 5-image collections.
+	 * To replace any placeholder slot with your own photo later,
+	 * simply paste the image path into `src` (e.g. "./wp-content/uploads/sites/108/2026/06/my-photo.jpg").
+	 */
+	const GROUNDED_CRAFT_COLLECTIONS = {
+		theatre: {
+			widgetId: "40a86a62",
+			title: "THEATRE & DIRECTION",
+			subtitle: "7+ years with govt-affiliated repertory Rangakirana and director of Tukrana Kanasu at Yuva Rangotsava 2026.",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-service-theatre.jpg", caption: "Theatre Direction & Script Study" },
+				{ src: "", caption: "Theatre & Direction — Photo 02" },
+				{ src: "", caption: "Theatre & Direction — Photo 03" },
+				{ src: "", caption: "Theatre & Direction — Photo 04" },
+				{ src: "", caption: "Theatre & Direction — Photo 05" }
+			]
+		},
+		dance: {
+			widgetId: "2124c6b9",
+			title: "DANCE & FOLKLORE",
+			subtitle: "Junior & Senior Certified Bharatanatyam exponent trained in Kalari, Kamsale, Kolata, Dollu Kunita & Patta Kunita.",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-service-dance.jpg", caption: "Bharatanatyam Classical Dance" },
+				{ src: "", caption: "Dance & Folklore — Photo 02" },
+				{ src: "", caption: "Dance & Folklore — Photo 03" },
+				{ src: "", caption: "Dance & Folklore — Photo 04" },
+				{ src: "", caption: "Dance & Folklore — Photo 05" }
+			]
+		},
+		dubbing: {
+			widgetId: "4a5ab5e3",
+			title: "VOICE & DUBBING",
+			subtitle: "Expressive film & serial dubbing across Jangama Studios, Sambhrama Media House & Krishi Studio, plus event anchoring.",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-service-dubbing.jpg", caption: "Voice Dubbing Studio Session" },
+				{ src: "", caption: "Voice & Dubbing — Photo 02" },
+				{ src: "", caption: "Voice & Dubbing — Photo 03" },
+				{ src: "", caption: "Voice & Dubbing — Photo 04" },
+				{ src: "", caption: "Voice & Dubbing — Photo 05" }
+			]
+		},
+		lighting: {
+			widgetId: "2aa3be5a",
+			title: "CINEMA & LIGHTING",
+			subtitle: "Lead roles in Kittur Rani Chennamma, Maaya, and Kannada TV serials, plus Nirdigantha Lighting Design training.",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-service-lighting.jpg", caption: "Stage Lighting & Scenography" },
+				{ src: "", caption: "Cinema & Lighting — Photo 02" },
+				{ src: "", caption: "Cinema & Lighting — Photo 03" },
+				{ src: "", caption: "Cinema & Lighting — Photo 04" },
+				{ src: "", caption: "Cinema & Lighting — Photo 05" }
+			]
+		}
+	};
+
+	const modal = document.getElementById("gc-gallery-modal");
+	const titleEl = document.getElementById("gc-gallery-title");
+	const subtitleEl = document.getElementById("gc-gallery-subtitle");
+	const gridEl = document.getElementById("gc-gallery-grid");
+	const closeBtn = document.getElementById("gc-gallery-close");
+
+	const lightbox = document.getElementById("gc-gallery-lightbox");
+	const lbStage = document.getElementById("gc-gallery-lightbox-stage");
+	const lbCaption = document.getElementById("gc-gallery-lightbox-caption");
+	const lbCounter = document.getElementById("gc-lb-counter");
+	const lbPrev = document.getElementById("gc-lb-prev");
+	const lbNext = document.getElementById("gc-lb-next");
+	const lbClose = document.getElementById("gc-lb-close");
+
+	let activeCollection = null;
+	let activeIndex = 0;
+	let lastTrigger = null;
+
+	function buildPlaceholder(item, index) {
+		const wrap = document.createElement("div");
+		wrap.className = "gc-gallery-placeholder";
+		wrap.innerHTML =
+			'<span class="gc-gallery-placeholder-num">Photo 0' + (index + 1) + ' / 05</span>' +
+			'<span class="gc-gallery-placeholder-label">' + item.caption + '</span>' +
+			'<span class="gc-gallery-placeholder-hint">Ready for your photo</span>';
+		return wrap;
+	}
+
+	function openLightbox(index) {
+		if (!activeCollection) return;
+		const items = activeCollection.items;
+		activeIndex = (index + items.length) % items.length;
+		const item = items[activeIndex];
+		lbStage.innerHTML = "";
+		if (item.src) {
+			const img = document.createElement("img");
+			img.src = item.src;
+			img.alt = item.caption;
+			lbStage.appendChild(img);
+		} else {
+			lbStage.appendChild(buildPlaceholder(item, activeIndex));
+		}
+		lbCaption.textContent = item.caption;
+		lbCounter.textContent = (activeIndex + 1) + " / " + items.length;
+		lightbox.classList.add("is-open");
+		lightbox.setAttribute("aria-hidden", "false");
+	}
+
+	function closeLightbox() {
+		lightbox.classList.remove("is-open");
+		lightbox.setAttribute("aria-hidden", "true");
+	}
+
+	function openModal(key, triggerEl) {
+		const col = GROUNDED_CRAFT_COLLECTIONS[key];
+		if (!col) return;
+		activeCollection = col;
+		lastTrigger = triggerEl || null;
+		titleEl.textContent = col.title;
+		subtitleEl.textContent = col.subtitle;
+		gridEl.innerHTML = "";
+
+		col.items.forEach(function (item, idx) {
+			const card = document.createElement("button");
+			card.type = "button";
+			card.className = "gc-gallery-card";
+			card.setAttribute("aria-label", "View " + item.caption);
+
+			if (item.src) {
+				const img = document.createElement("img");
+				img.src = item.src;
+				img.alt = item.caption;
+				img.loading = "lazy";
+				card.appendChild(img);
+
+				const cap = document.createElement("div");
+				cap.className = "gc-gallery-card-caption";
+				cap.innerHTML =
+					'<span>' + item.caption + '</span>' +
+					'<span class="gc-gallery-card-index">0' + (idx + 1) + '/05</span>';
+				card.appendChild(cap);
+			} else {
+				card.appendChild(buildPlaceholder(item, idx));
+			}
+
+			card.addEventListener("click", function () {
+				openLightbox(idx);
+			});
+			gridEl.appendChild(card);
+		});
+
+		modal.classList.add("is-open");
+		modal.setAttribute("aria-hidden", "false");
+		document.body.style.overflow = "hidden";
+		closeBtn.focus();
+	}
+
+	function closeModal() {
+		closeLightbox();
+		modal.classList.remove("is-open");
+		modal.setAttribute("aria-hidden", "true");
+		document.body.style.overflow = "";
+		if (lastTrigger) lastTrigger.focus();
+	}
+
+	Object.keys(GROUNDED_CRAFT_COLLECTIONS).forEach(function (key) {
+		const col = GROUNDED_CRAFT_COLLECTIONS[key];
+		const widget = document.querySelector('#disciplines [data-id="' + col.widgetId + '"]');
+		if (!widget) return;
+		widget.classList.add("gc-gallery-trigger");
+		widget.setAttribute("role", "button");
+		widget.setAttribute("tabindex", "0");
+		widget.setAttribute("aria-label", "Open " + col.title + " 5-photo gallery");
+
+		const badge = document.createElement("span");
+		badge.className = "gc-gallery-badge";
+		badge.textContent = "5 Photos ↗";
+		widget.appendChild(badge);
+
+		widget.addEventListener("click", function (e) {
+			e.preventDefault();
+			openModal(key, widget);
+		});
+		widget.addEventListener("keydown", function (e) {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				openModal(key, widget);
+			}
+		});
+	});
+
+	closeBtn.addEventListener("click", closeModal);
+	modal.addEventListener("click", function (e) {
+		if (e.target === modal) closeModal();
+	});
+	lbClose.addEventListener("click", closeLightbox);
+	lbPrev.addEventListener("click", function () { openLightbox(activeIndex - 1); });
+	lbNext.addEventListener("click", function () { openLightbox(activeIndex + 1); });
+	lightbox.addEventListener("click", function (e) {
+		if (e.target === lightbox) closeLightbox();
+	});
+
+	document.addEventListener("keydown", function (e) {
+		if (lightbox.classList.contains("is-open")) {
+			if (e.key === "Escape") closeLightbox();
+			else if (e.key === "ArrowLeft") openLightbox(activeIndex - 1);
+			else if (e.key === "ArrowRight") openLightbox(activeIndex + 1);
+		} else if (modal.classList.contains("is-open") && e.key === "Escape") {
+			closeModal();
+		}
+	});
+})();
+</script>
 </body>
 </html> 

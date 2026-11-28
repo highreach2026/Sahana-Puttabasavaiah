@@ -819,6 +819,53 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 						font-size: 11px;
 					}
 				}
+
+				/* Back to Top button (bottom-right corner only) */
+				.back-to-top-btn {
+					position: fixed;
+					right: 24px;
+					bottom: 24px;
+					z-index: 9990;
+					width: 46px !important;
+					height: 46px !important;
+					padding: 0 !important;
+					margin: 0 !important;
+					border-radius: 999px !important;
+					border: 1px solid rgba(243, 239, 230, 0.28) !important;
+					background: rgba(11, 11, 11, 0.88) !important;
+					color: #F3EFE6 !important;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+					backdrop-filter: blur(6px);
+					-webkit-backdrop-filter: blur(6px);
+					opacity: 0;
+					visibility: hidden;
+					transform: translateY(10px);
+					transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+				}
+				.back-to-top-btn.is-visible {
+					opacity: 1;
+					visibility: visible;
+					transform: translateY(0);
+				}
+				.back-to-top-btn:hover,
+				.back-to-top-btn:focus-visible {
+					background: #FF4D00 !important;
+					border-color: #FF4D00 !important;
+					color: #0B0B0B !important;
+					outline: none;
+				}
+				@media (max-width: 767px) {
+					.back-to-top-btn {
+						right: 16px;
+						bottom: 16px;
+						width: 42px !important;
+						height: 42px !important;
+					}
+				}
 			</style>
 </head>
 
@@ -1865,6 +1912,28 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 		} else if (modal.classList.contains("is-open") && e.key === "Escape") {
 			closeModal();
 		}
+	});
+})();
+</script>
+
+<button type="button" id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to top" title="Back to top">
+	<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+		<path d="M12 19V5" />
+		<path d="M5 12l7-7 7 7" />
+	</svg>
+</button>
+<script id="back-to-top-js">
+(function () {
+	const btn = document.getElementById("back-to-top-btn");
+	if (!btn) return;
+	function toggle() {
+		if (window.scrollY > 350) btn.classList.add("is-visible");
+		else btn.classList.remove("is-visible");
+	}
+	window.addEventListener("scroll", toggle, { passive: true });
+	toggle();
+	btn.addEventListener("click", function () {
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	});
 })();
 </script>

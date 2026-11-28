@@ -427,8 +427,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 					}
 				}
 
-				/* Grounded Craft (#disciplines): 5-Image Collection Grid Gallery Modal */
-				#disciplines .gc-gallery-trigger {
+				/* Grounded Craft (#disciplines) & Built to Perform (#works): 5-Image Collection Grid Gallery Modal */
+				#disciplines .gc-gallery-trigger,
+				#works .gc-gallery-trigger {
 					cursor: pointer;
 				}
 				#disciplines .gc-gallery-trigger img {
@@ -440,7 +441,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 					transform: scale(1.025);
 					filter: brightness(0.92);
 				}
-				#disciplines .gc-gallery-badge {
+				#disciplines .gc-gallery-badge,
+				#works .gc-gallery-badge {
 					position: absolute;
 					right: 16px;
 					bottom: 16px;
@@ -464,7 +466,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 					transition: background-color 0.25s ease, transform 0.25s ease;
 				}
 				#disciplines .gc-gallery-trigger:hover .gc-gallery-badge,
-				#disciplines .gc-gallery-trigger:focus-visible .gc-gallery-badge {
+				#disciplines .gc-gallery-trigger:focus-visible .gc-gallery-badge,
+				#works .gc-gallery-trigger:hover .gc-gallery-badge,
+				#works .gc-gallery-trigger:focus-visible .gc-gallery-badge {
 					background: #FF4D00;
 					color: #0B0B0B;
 					border-color: #FF4D00;
@@ -773,7 +777,8 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 					.gc-gallery-placeholder-hint {
 						font-size: 11px;
 					}
-					#disciplines .gc-gallery-badge {
+					#disciplines .gc-gallery-badge,
+					#works .gc-gallery-badge {
 						right: 10px;
 						bottom: 10px;
 						padding: 6px 11px;
@@ -1573,7 +1578,7 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 	<div class="gc-gallery-dialog">
 		<div class="gc-gallery-header">
 			<div>
-				<p class="gc-gallery-kicker">Grounded Craft Collection • 5 Photos</p>
+				<p id="gc-gallery-kicker" class="gc-gallery-kicker">Grounded Craft Collection • 5 Photos</p>
 				<h3 id="gc-gallery-title" class="gc-gallery-title"></h3>
 				<p id="gc-gallery-subtitle" class="gc-gallery-subtitle"></p>
 			</div>
@@ -1601,13 +1606,14 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 <script id="gc-grounded-craft-gallery-js">
 (function () {
 	/*
-	 * Grounded Craft 5-image collections.
+	 * Grounded Craft (#disciplines) & Built to Perform (#works) 5-image collections.
 	 * To replace any placeholder slot with your own photo later,
 	 * simply paste the image path into `src` (e.g. "./wp-content/uploads/sites/108/2026/06/my-photo.jpg").
 	 */
 	const GROUNDED_CRAFT_COLLECTIONS = {
 		theatre: {
-			widgetId: "40a86a62",
+			selector: '#disciplines [data-id="40a86a62"]',
+			kicker: "Grounded Craft Collection • 5 Photos",
 			title: "THEATRE & DIRECTION",
 			subtitle: "7+ years with govt-affiliated repertory Rangakirana and director of Tukrana Kanasu at Yuva Rangotsava 2026.",
 			items: [
@@ -1619,7 +1625,8 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 			]
 		},
 		dance: {
-			widgetId: "2124c6b9",
+			selector: '#disciplines [data-id="2124c6b9"]',
+			kicker: "Grounded Craft Collection • 5 Photos",
 			title: "DANCE & FOLKLORE",
 			subtitle: "Junior & Senior Certified Bharatanatyam exponent trained in Kalari, Kamsale, Kolata, Dollu Kunita & Patta Kunita.",
 			items: [
@@ -1631,7 +1638,8 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 			]
 		},
 		dubbing: {
-			widgetId: "4a5ab5e3",
+			selector: '#disciplines [data-id="4a5ab5e3"]',
+			kicker: "Grounded Craft Collection • 5 Photos",
 			title: "VOICE & DUBBING",
 			subtitle: "Expressive film & serial dubbing across Jangama Studios, Sambhrama Media House & Krishi Studio, plus event anchoring.",
 			items: [
@@ -1643,7 +1651,8 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 			]
 		},
 		lighting: {
-			widgetId: "2aa3be5a",
+			selector: '#disciplines [data-id="2aa3be5a"]',
+			kicker: "Grounded Craft Collection • 5 Photos",
 			title: "CINEMA & LIGHTING",
 			subtitle: "Lead roles in Kittur Rani Chennamma, Maaya, and Kannada TV serials, plus Nirdigantha Lighting Design training.",
 			items: [
@@ -1653,10 +1662,63 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 				{ src: "", caption: "Cinema & Lighting — Photo 04" },
 				{ src: "", caption: "Cinema & Lighting — Photo 05" }
 			]
+		},
+		kittur: {
+			selector: '#works [data-id="a3080d6"]',
+			kicker: "Built to Perform Collection • 5 Photos",
+			title: "Kittur Rani.",
+			subtitle: "Feature Film Lead 'Chennamma'",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-project-chennamma.jpg", caption: "Kittur Rani — Feature Film Lead 'Chennamma'" },
+				{ src: "", caption: "Kittur Rani — Photo 02" },
+				{ src: "", caption: "Kittur Rani — Photo 03" },
+				{ src: "", caption: "Kittur Rani — Photo 04" },
+				{ src: "", caption: "Kittur Rani — Photo 05" }
+			]
+		},
+		tukrana: {
+			selector: '#works [data-id="14daec50"]',
+			kicker: "Built to Perform Collection • 5 Photos",
+			title: "Tukrana Kanasu.",
+			subtitle: "Play Direction (Yuva Rangotsava)",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-project-theatre.jpg", caption: "Tukrana Kanasu — Play Direction (Yuva Rangotsava)" },
+				{ src: "", caption: "Tukrana Kanasu — Photo 02" },
+				{ src: "", caption: "Tukrana Kanasu — Photo 03" },
+				{ src: "", caption: "Tukrana Kanasu — Photo 04" },
+				{ src: "", caption: "Tukrana Kanasu — Photo 05" }
+			]
+		},
+		gokula: {
+			selector: '#works [data-id="484213ed"]',
+			kicker: "Built to Perform Collection • 5 Photos",
+			title: "Gokula Nirgamana.",
+			subtitle: "25th Bharat Rang Mahotsav — Radhe",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-cta-spotlight.jpg", caption: "Gokula Nirgamana — 25th Bharat Rang Mahotsav" },
+				{ src: "", caption: "Gokula Nirgamana — Photo 02" },
+				{ src: "", caption: "Gokula Nirgamana — Photo 03" },
+				{ src: "", caption: "Gokula Nirgamana — Photo 04" },
+				{ src: "", caption: "Gokula Nirgamana — Photo 05" }
+			]
+		},
+		maaya: {
+			selector: '#works [data-id="651cc427"]',
+			kicker: "Built to Perform Collection • 5 Photos",
+			title: "Maaya & TV Serials.",
+			subtitle: "Short Film & Kannada Television",
+			items: [
+				{ src: "./wp-content/uploads/sites/108/2026/06/sahana-project-cinema.jpg", caption: "Maaya & TV Serials — Short Film & Television" },
+				{ src: "", caption: "Maaya & TV Serials — Photo 02" },
+				{ src: "", caption: "Maaya & TV Serials — Photo 03" },
+				{ src: "", caption: "Maaya & TV Serials — Photo 04" },
+				{ src: "", caption: "Maaya & TV Serials — Photo 05" }
+			]
 		}
 	};
 
 	const modal = document.getElementById("gc-gallery-modal");
+	const kickerEl = document.getElementById("gc-gallery-kicker");
 	const titleEl = document.getElementById("gc-gallery-title");
 	const subtitleEl = document.getElementById("gc-gallery-subtitle");
 	const gridEl = document.getElementById("gc-gallery-grid");
@@ -1714,6 +1776,7 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 		if (!col) return;
 		activeCollection = col;
 		lastTrigger = triggerEl || null;
+		kickerEl.textContent = col.kicker;
 		titleEl.textContent = col.title;
 		subtitleEl.textContent = col.subtitle;
 		gridEl.innerHTML = "";
@@ -1763,7 +1826,7 @@ var jkit_element_pagination_option = {"element_prefix":"jkit_element_ajax_"};
 
 	Object.keys(GROUNDED_CRAFT_COLLECTIONS).forEach(function (key) {
 		const col = GROUNDED_CRAFT_COLLECTIONS[key];
-		const widget = document.querySelector('#disciplines [data-id="' + col.widgetId + '"]');
+		const widget = document.querySelector(col.selector);
 		if (!widget) return;
 		widget.classList.add("gc-gallery-trigger");
 		widget.setAttribute("role", "button");
